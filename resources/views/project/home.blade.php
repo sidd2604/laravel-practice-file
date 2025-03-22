@@ -60,6 +60,7 @@
                         <td>{{ $product->description }}</td>
                         <td>
                             <a href={{ route('project.edit', $product->id) }} class="btn btn-dark btn-small"><strong>Edit</strong></a>
+                            <a href={{ route('project.delete', $product->id) }} class="btn btn-danger btn-small"><strong>Delete</strong></a>
                         </td>
                     </tr>
                 @endforeach

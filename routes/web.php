@@ -138,3 +138,6 @@ Route::get('/', [ProductController::class, 'index'])->name('project.home');
 Route::get('create', [ProductController::class, 'create'])->name('project.create');
 Route::post('store', [ProductController::class, 'store'])->name('project.store');
 Route::get('edit/{id}', [ProductController::class, 'edit'])->name('project.edit');
+Route::put('update/{id}', [ProductController::class, 'update'])->name('project.update');
+// Route::delete('delete/{id}', [ProductController::class, 'delete'])->name('project.delete');
+Route::get('delete_by_get/{id}', [ProductController::class, 'destroy'])->name('project.delete');

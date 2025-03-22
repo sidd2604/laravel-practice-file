@@ -40,9 +40,10 @@
         <div class="row justify-content-center">
             <div class="col-sm-8">
                 <div class="card mt-3 p-3">
-                    <div class="text-muted">Product Edit #{{$product->name}}</div>
+                    <div class="text-muted">Product Edit  ===> {{$product->name}}</div>
                     <form method="POST" action="{{ route('project.update', $product->id) }}" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $product->name) }}">

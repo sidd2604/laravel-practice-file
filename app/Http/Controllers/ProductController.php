@@ -50,4 +50,43 @@ class ProductController extends Controller
         return view('project.edit', ['product'=>$product]);
         // dd($id);
     }
+
+    public function update(Request $request, $id){
+        // dd($request->all());
+
+        // validation
+
+        $request->validate([
+            'name' => 'nullable',
+            'description' => 'nullable',
+            'image' => 'nullable|max:1000'
+        ]);
+
+        $product = Product::where('id', $id)->first();
+
+        if(isset($request->image)){
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('project'), $imageName);
+            $product->image = $imageName;
+        }
+
+        $product->name = $request->name;
+        $product->description = $request->description;
+
+        $product->save();
+
+        return back()->withSuccess('Product Updated !!!');
+    }
+
+    // public function delete($id){
+    //     $product = Product::where('id', $id)->first();
+    //     $product->delete();
+    //     return back()->withSuccess('Product Deleted !!!');
+    // }
+
+    public function destroy($id){
+        $product = Product::where('id', $id)->first();
+        $product->delete();
+        return back()->withSuccess('Product Deleted !!!');
+    }
 }
