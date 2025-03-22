@@ -89,4 +89,9 @@ class ProductController extends Controller
         $product->delete();
         return back()->withSuccess('Product Deleted !!!');
     }
+
+    public function view($id){
+        $product = Product::where('id', $id)->first();
+        return view('project.view', ['product'=>$product]);
+    }
 }

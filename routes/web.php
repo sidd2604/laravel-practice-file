@@ -141,3 +141,4 @@ Route::get('edit/{id}', [ProductController::class, 'edit'])->name('project.edit'
 Route::put('update/{id}', [ProductController::class, 'update'])->name('project.update');
 // Route::delete('delete/{id}', [ProductController::class, 'delete'])->name('project.delete');
 Route::get('delete_by_get/{id}', [ProductController::class, 'destroy'])->name('project.delete');
+Route::get('view/{id}', [ProductController::class, 'view'])->name('project.view');
